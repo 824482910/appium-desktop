@@ -1,5 +1,5 @@
 import { app, shell, dialog } from 'electron';
-import { createNewSessionWindow } from './appium';
+import { createNewSessionWindow, createNewConfigWindow} from './appium';
 import { checkNewUpdates } from './auto-updater';
 
 let menuTemplates = {mac: {}, other: {}};
@@ -22,6 +22,11 @@ function macMenuAppium (mainWindow) {
       accelerator: 'Command+N',
       click () {
         createNewSessionWindow(mainWindow);
+      }
+    }, {
+      label: 'Configurations',
+      click () {
+        createNewConfigWindow(mainWindow);
       }
     }, {
       type: 'separator'
